@@ -120,6 +120,11 @@ function renderForecast(city){
             $("#dateFour").text(dateFour);
             $("#dateFive").text(dateFive);
 
+            var fiveDayTitle = $("<h2>").text("Five Day Forecast:");
+           
+            fiveDayTitle.addClass("col-12"); 
+            $("#displayFive").prepend(fiveDayTitle);
+
             var weatherOne = fiveData.daily[0].weather[0].icon;
             $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherOne + "@2x.png");
             var weatherTwo = fiveData.daily[1].weather[0].icon;
