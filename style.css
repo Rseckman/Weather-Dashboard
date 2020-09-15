@@ -5,3 +5,21 @@
 #logo {
     background-color: rgb(67, 99, 202);
 }
+
+.fiveDayBox {
+    background-color: rgb(67, 99, 202);
+    color: whitesmoke;
+    text-align: center;
+}
+
+#high{
+    background-color: red;
+}
+
+#medium{
+    background-color: orange;
+}
+
+#low{
+    background-color: greenyellow;
+}
