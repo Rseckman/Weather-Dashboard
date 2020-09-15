@@ -13,12 +13,83 @@
         <h1 id="header" class="text-center bg-dark mb-2 py-2">Weather Dashboard</h1>
     </header>
     <div id ="mainContainer" class= "container-fluid row mx-1">
+        <div id="searchAreaDiv" class="container col-3 my-3 border-right">
+            <h4 id="searchH4"> Search for a City: </h4> 
 
+           
+            <input id="searchBar" type="text" class="mx-1" placeholder="Search..."/>
+
+            <button id="searchButton" class="btn btn-primary mx-1">Search</button>
+
+            <ul id="newTextAreaUl" class="list-group">
+
+            </ul>
+        </div>
+        <div id="displayDiv" class="container col-8">
+            <div id="displaySingle" class="container row my-4 border col-8">
+                <h1 id = "cityTitle">
+                    <span id="cityName"></span>
+                    <span id="date"></span>
+                    <img id="logo">
+                </h1>
+                <br>
+                <ul>
+                    <h4 id="temperature"></h4>
+                    <h4 id="humidity"></h4>
+                    <h4 id="wind"></h4>
+                    <h4 id="UVindex"></h4>
+                </ul>
+            </div>
+            <div id="displayFive" class="container row my-4 border">
+        
+                <div id="dayOne" class="container mx-1 rounded col">
+                    <ul>
+                        <h4 id="dateOne"></h4>
+                        <img id="logoOne">
+                        <p id="tempOne"></p>
+                        <p id="humidityOne"></p>
+                    </ul>
+                </div>
+                <div id="dayTwo" class="contianer mx-1 rounded col">
+                    <ul>
+                        <h4 id="dateTwo"></h4>
+                        <img id="logoTwo">
+                        <p id="tempTwo"></p>
+                        <p id="humidityTwo"></p>
+                    </ul>
+                </div>
+                <div id="dayThree" class="contianer mx-1 rounded col">
+                    <ul>
+                        <h4 id="dateThree"></h4>
+                        <img id="logoThree">
+                        <p id="tempThree"></p>
+                        <p id="humidityThree"></p>
+                    </ul>
+                </div>
+                <div id="dayFour" class="contianer mx-1 rounded col">
+                    <ul>
+                        <h4 id="dateFour"></h4>
+                        <img id="logoFour">
+                        <p id="tempFour"></p>
+                        <p id="humidityFour"></p>
+                    </ul>
+                </div>
+                <div id="dayFive" class="contianer mx-1 rounded col">
+                    <ul>
+                        <h4 id="dateFive"></h4>
+                        <img id="logoFive">
+                        <p id="tempFive"></p>
+                        <p id="humidityFive"></p>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 
     
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
    <script src = "script.js"></script> 
 </body>
 </html>
