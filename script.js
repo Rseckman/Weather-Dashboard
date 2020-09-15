@@ -4,13 +4,13 @@ newTextAreaUl.text("Search History")
 
 function createElements(){
     
-
     var searchButton = $("#searchButton");
     var searchBar = $("#searchBar");
 
     searchButton.click(function(){
         var city = searchBar.val();
         addCity(city);
+
         renderForecast(city);
     })
 };
@@ -28,20 +28,8 @@ function addCity(city){
 };
 
 
-// function getIconClass(weather) {
-//     if (weather === 'cloudy') {
-//         return 'icon-cloudy';
-//     }
-//     else if (weather === 'sunny') {
-//         return 'icon-sunny';
-//     }
-//     else if (weather === "snowy") {
-//         return "wi-night-sleet";
-//     }
-// }
-
 function renderForecast(city){
-     
+    
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c099aac4c6ae67f88c397030b260f19a`
     
     var currentDate = moment().format("MMM Do YYYY")
@@ -90,7 +78,6 @@ function renderForecast(city){
             $("#UVindex").html(`UV Index: <span id="UVindexData">` + UVindex + `</span>` );
             // $("#UVindexData").text(UVindex);
             
-
             if(UVindex > 7){
                 $("#UVindexData").attr("id", "high");
             } else if( UVindex > 2){
@@ -108,6 +95,7 @@ function renderForecast(city){
         }).then(function(fiveData){
             console.log(fiveData)
 
+
             $("#dayOne").addClass("fiveDayBox");
             $("#dayTwo").addClass("fiveDayBox");
             $("#dayThree").addClass("fiveDayBox");
@@ -120,10 +108,7 @@ function renderForecast(city){
             $("#dateFour").text(dateFour);
             $("#dateFive").text(dateFive);
 
-            var fiveDayTitle = $("<h2>").text("Five Day Forecast:");
-           
-            fiveDayTitle.addClass("col-12"); 
-            $("#displayFive").prepend(fiveDayTitle);
+            $("#fiveDayTitle").text("Five Day Forecast:");
 
             var weatherOne = fiveData.daily[0].weather[0].icon;
             $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherOne + "@2x.png");
@@ -173,50 +158,5 @@ function renderForecast(city){
         })
     })
 }; 
-
-// function renderFiveDayForecast(city) {
-//     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=c099aac4c6ae67f88c397030b260f19a`
-
-//     console.log(queryURL);
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function(weatherData){
-//         console.log(weatherData)
-//         var weatherOne = weatherData.daily[0].weather[0].icon;
-//         $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherOne + "@2x.png");
-//         var weatherTwo = weatherData.daily[1].weather[0].icon;
-//         $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherTwo + "@2x.png");
-//         var weatherThree = weatherData.daily[2].weather[0].icon;
-//         $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherThree + "@2x.png");
-//         var weatherFour = weatherData.daily[3].weather[0].icon;
-//         $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherFour + "@2x.png");
-//         var weatherFive = weatherData.daily[4].weather[0].icon;
-//         $("#logoOne").attr("src", "http://openweathermap.org/img/wn/" + weatherFive + "@2x.png");
-
-//         var tempOne = weather.daily[0].temp.day;
-//         var tempOneF = (tempOne - 273.15) * 1.80 + 32
-//         $("#tempOne").text("Temperature: " + tempOneF + " °F");
-
-//         var tempTwo = weather.daily[1].temp.day;
-//         var tempTwoF = (tempTwo - 273.15) * 1.80 + 32
-//         $("#tempTwo").text("Temperature: " + tempTwoF + " °F");
-
-//         var tempThree = weather.daily[2].temp.day;
-//         var tempThreeF = (tempThree - 273.15) * 1.80 + 32
-//         $("#tempThree").text("Temperature: " + tempThreeF + " °F");
-
-//         var tempFour = weather.daily[3].temp.day;
-//         var tempFourF = (tempFour - 273.15) * 1.80 + 32
-//         $("#tempFour").text("Temperature: " + tempFourF + " °F");
-
-//         var tempFive = weather.daily[4].temp.day;
-//         var tempFiveF = (tempFive - 273.15) * 1.80 + 32
-//         $("#tempFive").text("Temperature: " + tempFiveF + " °F");
-
-//     })
-// }
-
 
 createElements();
